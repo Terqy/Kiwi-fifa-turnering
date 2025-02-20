@@ -52,6 +52,7 @@ body {
 }
 
 .register input {
+    border-radius: 10px;
     width: 20%;
     height: 30px;
     margin: 5px 2px;
@@ -68,6 +69,7 @@ body {
 
 .register button {
     background-color: #7a7b81;
+    border-radius: 10px;
     border: none;
     font-size: 15px;
     width: 10%;
@@ -85,6 +87,7 @@ body {
 
 .topnav {
     background-color: #04aa6d;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     justify-content: center;
