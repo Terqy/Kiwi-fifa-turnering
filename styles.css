@@ -1,0 +1,93 @@
+body {
+    background-color: #3e3e42;
+    color: white;
+    font-family: sans-serif;
+}
+.whole_body {
+    display:flex;
+    margin: 5px 10px;
+}
+
+.tabels {
+    width: 60%;
+    height: 100%;
+    justify-content: center;
+}
+
+.tabels table {
+    border: solid #333;
+    border-width: 1px 1px;
+    margin: 7px 5px;
+    float: left;
+}
+
+.tabell caption {
+    font-size: 20px;
+    margin: 2px 2px;
+}
+
+.tabell th{
+    padding: 2px 2px;
+    border: solid #333;
+    border-width: 1px 1px;
+}
+
+.register {
+    overflow: hidden;
+    width: 20%;
+    height: 30%;
+    border: 1px;
+    margin: 5px 0px;
+    min-height: 100px;
+    background-color: whiter;
+}
+
+.register input {
+    width: 94%;
+    height: 1%;
+    margin: 2px 1px;
+    border: none;
+    font-size: 15px;
+}
+
+.register button {
+    background-color: #7a7b81;
+    border: none;
+    font-size: 15px;
+    width: 50%;
+    margin: 2px 25%;
+    color: white;
+    align-content: center;
+}
+
+.register button:hover {
+    background-color: white;
+}
+
+.topnav {
+    background-color: #04aa6d;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    border: solid #000;
+    border-width: 1px 1px;
+}
+
+.topnav a {
+    float:left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 15px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #3d3e42;
+    color: white
+}
