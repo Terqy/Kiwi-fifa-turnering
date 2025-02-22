@@ -1,18 +1,12 @@
-const first_name = document.getElementById("first_name");
-const last_name = document.getElementById("last_name");
-const email = document.getElementById("email");
-const store = document.getElementById("store");
-const avd = document.getElementById("avd");
-const register_button = document.getElementById("register")
-
 class User {
-    constructor(id, first_name, last_name, email, password, store, avd) {
+    constructor(id, first_name, last_name, email, password, store, avd, admin) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.password = password;
         this.store = store;
+        this.admin = admin;
     }
 }
 
@@ -45,7 +39,7 @@ function register_user() {
         password = password + number;
     }
 
-    let newUser = new User(id, firstName, lastName, emailValue, password, storeValue, avdValue);
+    let newUser = new User(id, firstName, lastName, emailValue, password, storeValue, avdValue, false);
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
@@ -55,11 +49,36 @@ function register_user() {
     make_json();
 }
 
+function login() {
+
+}
+
+//just for testing fuck this loool
 function make_json() {
     console.log("Saving to JSON for easy access and testing");
-    var users_stringified = users.forEach(user => {
-        JSON.stringify(user);
-    });
+    var users_stringified = JSON.stringify(users);
+    if(users_stringified) {
+        console.log(users_stringified);
+        console.log("Saving json file....");
+        var download = confirm("Download json? Yes or no!");
+        if(download) {
+            const blob = new Blob([users_stringified], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "JSONtest.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        } else {
+            console.log("wont download json.-.---");
+        }
+    } 
+}
 
-    console.log(users_stringified);
+function clear_users() {
+    localStorage.clear();
+    users = [];
+    console.log("Cleared everything MF");
 }
