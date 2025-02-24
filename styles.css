@@ -46,19 +46,21 @@ body {
 }
 
 .tabell caption {
-    font-size: 15px;
+    font-size: 20px;
     margin: 2px 2px;
-    border: solid #333;
-    border-width: 1px 1px;
-    border-radius: 15px;
+    border: none;
 }
 
 .tabell th{
     padding: 2px 2px;
+    border: none;
+    font-size: 15px;
+}
+
+.tabell tr {
     border: solid #333;
     border-width: 1px 1px;
     border-radius: 15px;
-    font-size: 12px;
 }
 
 .login {

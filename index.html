@@ -2,6 +2,7 @@
 <head>
     <title>Fifa Turnering</title>
     <link rel = "stylesheet" href="styles.css">
+    <script type="text/javascript" src="index.js"></script>
     <meta name = "viewport" content="width = device-width initial-scale = 1">
 </head>
 <body>
@@ -16,85 +17,28 @@
     <div class="whole_body">
         <div class = "tabels">
             <table class="tabell">
-                <caption class = "groupA">Gruppe A</caption>
+                <caption class = "group-name">Gruppe A</caption>
                 <tr>
-                    <th>Spiller</th>
-                    <th>Vunnet</th>
-                    <th>Uavjgjort</th>
-                    <th>Tapt</th>
-                    <th>Mål for</th>
-                    <th>Mål mot</th>
+                    <th class = "player-header" scope = "col">Spiller</th>
+                    <th class = "wins-header" scope = "col">Vunnet</th>
+                    <th class = "draws-header" scope = "col">Uavgjort</th>
+                    <th class = "losses-header" scope = "col">Tap</th>
+                    <th class = "goals-for-header" scope = "col">Mål For</th>
+                    <th class = "goals-against-header" scope = "col">Mål mot</th>
+                    <th class = "points-header" scope = "col">Poeng</th>
                 </tr>
                 <tr>
-                    <th class = "name">Kai Morten</th>
-                    <th class = "wins">1</th>
-                    <th class = "draws">1</th>
-                    <th class = "losses">1</th>
-                    <th class = "goals-for">1</th>
-                    <th class = "goals-against">1</th>
-                </tr>
-            </table>
-            <table class ="tabell">
-                <caption>Gruppe B</caption>
-                <tr>
-                    <th>Spiller</th>
-                    <th>Vunnet</th>
-                    <th>Uavjgjort</th>
-                    <th>Tapt</th>
-                    <th>Mål for</th>
-                    <th>Mål mot</th>
-                </tr>
-                <tr>
-                    <th>Kai Morten</th>
-                    <th>1</th>
-                    <th>1</th>
-                    <th>1</th>
-                    <th>1</th>
-                    <th>1</th>
-                </tr>
-            </table>
-            <table class ="tabell">
-                <caption>Gruppe C</caption>
-                <tr>
-                    <th>Spiller</th>
-                    <th>Vunnet</th>
-                    <th>Uavjgjort</th>
-                    <th>Tapt</th>
-                    <th>Mål for</th>
-                    <th>Mål mot</th>
-                </tr>
-                <tr>
-                    <th>Kai Morten</th>
-                    <th>1</th>
-                    <th>1</th>
-                    <th>1</th>
-                    <th>1</th>
-                    <th>1</th>
-                </tr>
-            </table>
-            <table class ="tabell">
-                <caption>Gruppe D</caption>
-                <tr>
-                    <th>Spiller</th>
-                    <th>Vunnet</th>
-                    <th>Uavjgjort</th>
-                    <th>Tapt</th>
-                    <th>Mål for</th>
-                    <th>Mål mot</th>
-                </tr>
-                <tr>
-                    <th>Kai Morten</th>
-                    <th>1</th>
-                    <th>1</th>
-                    <th>1</th>
-                    <th>1</th>
-                    <th>1</th>
-                </tr>
+                    <th class = "name" scope = "row">Kai Morten</th>
+                    <th class = "wins" scope = "row">1</th>
+                    <th class = "draws" scope = "row">1</th>
+                    <th class = "losses" scope = "row">1</th>
+                    <th class = "goals-for" scope = "row">1</th>
+                    <th class = "goals-against" scope = "row">1</th>
+                    <th class = "points" scope = "row">1</th>
+                    </tr>
             </table>
         </div>
-    </div>
 
-    <script type="text/javascript" src = "script.js">
-        
-    </script>
+        <button id = "generate-button" onclick="generateGroups()">Generer grupper!</button>
+    </div>
 </body>

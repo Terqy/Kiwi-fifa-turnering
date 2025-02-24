@@ -1,4 +1,4 @@
-class User {
+ class User {
     constructor(id, first_name, last_name, email, password, store, avd, admin) {
         this.id = id;
         this.first_name = first_name;
@@ -10,9 +10,19 @@ class User {
     }
 }
 
-let users = JSON.parse(localStorage.getItem("users"))?.map(user=> new User(user.id, user.firstName, user.lastName, 
-    user.email,user.password, user.store, user.avd) )||[];
+let users = [];
+let currentUser = [];
 
+//check if localstorage has "users" and make it an array of user objects if users is undefined or null make it empty.
+document.addEventListener("DOMContentLoaded", () => {
+    try {
+        users = JSON.parse(localStorage.getItem("users"));
+    } catch(error) {
+        console.error(error);
+    }
+}) 
+
+//register the user
 function register_user() {
     let id = users.length + 1;
     let firstName = document.getElementById("first_name")?.value.trim() || "";
@@ -49,10 +59,6 @@ function register_user() {
     make_json();
 }
 
-function login() {
-
-}
-
 //just for testing fuck this loool
 function make_json() {
     console.log("Saving to JSON for easy access and testing");
@@ -80,5 +86,6 @@ function make_json() {
 function clear_users() {
     localStorage.clear();
     users = [];
+    currentUser = [];
     console.log("Cleared everything MF");
 }
