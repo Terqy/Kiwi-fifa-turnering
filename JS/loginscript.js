@@ -1,15 +1,3 @@
-class User {
-    constructor(id, first_name, last_name, email, password, store, avd, admin) {
-        this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.email = email;
-        this.password = password;
-        this.store = store;
-        this.admin = admin;
-    }
-}
-
 let users = [];
 let currentUser = [];
 
@@ -25,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function login() {
     let email = document.getElementById("login_email").value?.trim().toLowerCase() || "";
     let password = document.getElementById("login_password").value || "";
-    let user = [];
 
     if(currentUser) {
         let logout = confirm("Logged in logout?");
@@ -38,20 +25,30 @@ function login() {
 
     for(i = 0; i < users.length; i++) {
         if(users[i].email === email) {
-            user = new User(users[i].id, users[i].first_name, users[i].last_name, users[i].email, users[i].password,
-                users[i].store, users[i].avd, users[i].admin);
-                if(user.password === password) {
-                    try{
-                        console.log("logged in");
-                        currentUser.push(user);
-                        localStorage.setItem("currentUser", JSON.stringify(currentUser));
-                        return;
-                    } catch(error) {
-                        console.error("Error!" + error);
-                        return;
+                if(users[i].password === password) {
+                    let user = {
+                        id: users[i].id,
+                        firstName: users[i].firstName,
+                        lastName: users[i].lastName,
+                        email: users[i].email
+                    };
+
+                    if(user) {
+                        try {
+                            localStorage.setItem("currentUser", JSON.stringify(user));
+                            return;
+                        } catch(error) {
+                            console.error("Error! " + error);
+                            return;
+                        }
+                    } else {
+                        console.log("Could not login????");
                     }
                 break;
             }
+        } else {
+            alert(`No user with Email: ${email} registered.`);
+            return;
         }
     }
     console.log(Object.prototype.toString.call(user).slice(8, -1));

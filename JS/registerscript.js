@@ -1,22 +1,10 @@
- class User {
-    constructor(id, first_name, last_name, email, password, store, avd, admin) {
-        this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.email = email;
-        this.password = password;
-        this.store = store;
-        this.admin = admin;
-    }
-}
-
 let users = [];
 let currentUser = [];
 
 //check if localstorage has "users" and make it an array of user objects if users is undefined or null make it empty.
 document.addEventListener("DOMContentLoaded", () => {
     try {
-        users = JSON.parse(localStorage.getItem("users"));
+        users = JSON.parse(localStorage.getItem("users")) || [];
     } catch(error) {
         console.error(error);
     }
@@ -24,39 +12,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //register the user
 function register_user() {
-    let id = users.length + 1;
+    console.log("Trying....");
+    let id = 0;
+    let password = "";
     let firstName = document.getElementById("first_name")?.value.trim() || "";
     let lastName = document.getElementById("last_name")?.value.trim() || "";
     let emailValue = document.getElementById("email")?.value.trim().toLowerCase() || "";
     let storeValue = document.getElementById("store")?.value.trim() || "";
     let avdValue = document.getElementById("avd")?.value.trim() || "";
+
+    if(users) {
+        id = users.length + 1;
+        if(!firstName || !lastName || !emailValue || !storeValue || !avdValue) {
+            alert("Enter all fields");
+            return;
+        }
+
+        let emailExists = users.some(user => user.email.toLowerCase() === emailValue);
+        if(emailExists) {
+            alert("Email already registered");
+            return;
+        }
     
-    if(!firstName || !lastName || !emailValue || !storeValue || !avdValue) {
-        alert("Enter all fields");
-        return;
+    } else {
+        id = 1;
     }
-
-    let emailExists = users.some(user => user.email.toLowerCase() === emailValue);
-    if(emailExists) {
-        alert("Email already registered");
-        return;
-    }
-
-    let password = "";
 
     for(i = 0; i < 4; i++) {
         let number = Math.floor(Math.random() * 10);
         password = password + number;
     }
 
-    let newUser = new User(id, firstName, lastName, emailValue, password, storeValue, avdValue, false);
+    let newUser = new User(id, firstName, lastName, emailValue, password, storeValue, avdValue, false, false);
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
     console.log("Added user");
     console.log(users);
-
-    make_json();
 }
 
 //just for testing fuck this loool

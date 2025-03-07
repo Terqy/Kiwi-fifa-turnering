@@ -29,38 +29,27 @@ body {
     margin: 5px;
 }
 
-.tabels {
+.groups caption {
+    font-size: 20px;
+    margin: 7px 5px;
+}
+
+.groups td {
+    font-size: 15px;
+    margin: 1px 1px;
+    justify-content: center;
+    text-align: center;
+}
+
+.groups {
     width: 50%;
     height: 100%;
     justify-content: center;
     display: block;
 }
 
-.tabels table {
-    border: solid #333;
-    border-width: 1px 1px;
-    border-radius: 15px;
-    width: 45%;
-    margin: 7px 5px;
-    float: left;
-}
-
-.tabell caption {
-    font-size: 20px;
+.group-header th{
     margin: 2px 2px;
-    border: none;
-}
-
-.tabell th{
-    padding: 2px 2px;
-    border: none;
-    font-size: 15px;
-}
-
-.tabell tr {
-    border: solid #333;
-    border-width: 1px 1px;
-    border-radius: 15px;
 }
 
 .login {
